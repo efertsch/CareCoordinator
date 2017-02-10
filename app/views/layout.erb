@@ -18,30 +18,44 @@
   <title></title>
 </head>
 <body>
-  <% if current_user%>
+  <% if current_doctor %>
     <nav id="nav-bar">
       <ul id=bar-if-in>
         <li><a href="/">Home</a></li>
-        <li><a href="/users/<%=current_user.id%>"><%=current_user.user_name%></a></li>
+        <li><a href="/doctors/<%=current_doctor.id%>"><%=current_doctor.first_name%></a></li>
         <li>
-          <form id="the-form" action="/sessions" method="post">
+          <form id="the-form" action="/doctors/sessions" method="post">
             <input type="hidden" name="_method" value="delete">
             <input id="logout-form" type="submit" value="Logout">
           </form>
         </li>
-        <li><a href="/users/<%=current_user.id%>/restaurants/new">Add a Restaurant</a></li>
+        <li><a href="/doctors/<%=current_doctor.id%>/specialties/new">Add a Specialty</a></li>
       </ul>
     </nav>
-  <%else %>
+  <% elsif current_patient %>
+    <nav id="nav-bar">
+      <ul id=bar-if-in>
+        <li><a href="/">Home</a></li>
+        <li><a href="/patients/<%=current_patient.id%>"><%=current_patient.first_name%></a></li>
+        <li>
+          <form id="the-form" action="/patients/sessions" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input id="logout-form" type="submit" value="Logout">
+          </form>
+        </li>
+        <li><a href="/doctors">Find a Doctor</a></li>
+      </ul>
+    </nav>
+  <% else %>
     <nav>
       <ul id=bar-if-out>
         <li><a href="/">Home</a></li>
-        <li><a href="/sessions/new">Users</a></li>
-        <li><a href="/users/new">Doctors</a></li>
+        <li><a href="/patients">Patients</a></li>
+        <li><a href="/doctors">Doctors</a></li>
       </ul>
     </nav>
-  <%end%>
-  <h1 id=page-title> CareCoordinator </h1>
+  <% end %>
+  <center><h1 id=page-title> CareCoordinator </h1></center>
   <%= yield %>
 </body>
 </html>
