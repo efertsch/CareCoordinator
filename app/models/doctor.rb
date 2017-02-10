@@ -1,8 +1,10 @@
 class Doctor < ActiveRecord::Base
-  has_and_belongs_to_many :offices
+  has_many :doctors_offices
+  has_many :offices, through: :doctors_offices
   has_many :doctor_reviews
   has_many :patients, through: :doctor_reviews
-  has_and_belongs_to_many :specialties
+  has_many :doctors_specialties
+  has_many :specialties, through: :doctors_specialties
 
   validates :email, uniqueness: true 
 
