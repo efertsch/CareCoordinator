@@ -1,6 +1,6 @@
 class CreateOffices < ActiveRecord::Migration
   def change
-    create_table :doctors do |t|
+    create_table :offices do |t|
       t.string :name, null: false
       t.string :address, null: false
       t.string :phone_number, null: false

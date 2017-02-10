@@ -1,3 +1,3 @@
 class Office < ActiveRecord::Base
-  # Remember to create a migration!
+  has_and_belongs_to_many :doctors
 end

@@ -1,3 +1,4 @@
-class DoctorSpecialty < ActiveRecord::Base
-  # Remember to create a migration!
-end
+# class DoctorSpecialty < ActiveRecord::Base
+#   belongs_to :doctor
+#   belongs_to :specialty
+# end
