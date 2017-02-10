@@ -1,0 +1,65 @@
+#bar-if-in {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+#bar-if-out {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+li a:hover {
+    background-color: #111;
+}
+
+
+#logout-form {
+  padding: 27%;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+#logout-form:hover {
+    background-color: #111;
+}
+
+#make-link {
+  background:none;
+  border:none;
+  font-size:1em;
+  color:blue;
+}
+
+.button-link {
+    padding: 10px 15px;
+    background: #747577;
+    color: #FFF;
+}
+
+.button-link:hover, .button-link:focus {
+    background: #2c2c2d;
+    border: solid 1px #2A4E77;
+    text-decoration: none;
+}

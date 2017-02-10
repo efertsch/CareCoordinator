@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title></title>
+</head>
+<body>
+  <% if current_doctor %>
+    <nav id="nav-bar">
+      <ul id=bar-if-in>
+        <li><a href="/">Home</a></li>
+        <li><a href="/doctors/<%=current_doctor.id%>"><%=current_doctor.first_name%></a></li>
+        <li>
+          <form id="the-form" action="/doctors/sessions" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input id="logout-form" type="submit" value="Logout">
+          </form>
+        </li>
+        <li><a href="/doctors/<%=current_doctor.id%>/specialties/new">Add a Specialty</a></li>
+      </ul>
+    </nav>
+  <% elsif current_patient %>
+    <nav id="nav-bar">
+      <ul id=bar-if-in>
+        <li><a href="/">Home</a></li>
+        <li><a href="/patients/<%=current_patient.id%>"><%=current_patient.first_name%></a></li>
+        <li>
+          <form id="the-form" action="/patients/sessions" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input id="logout-form" type="submit" value="Logout">
+          </form>
+        </li>
+        <li><a href="/doctors">Find a Doctor</a></li>
+      </ul>
+    </nav>
+  <% else %>
+    <nav>
+      <ul id=bar-if-out>
+        <li><a href="/">Home</a></li>
+        <li><a href="/patients">Patients</a></li>
+        <li><a href="/doctors">Doctors</a></li>
+      </ul>
+    </nav>
+  <% end %>
+  <center><h1 id=page-title> CareCoordinator </h1></center>
+  <%= yield %>
+</body>
+</html>

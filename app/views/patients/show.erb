@@ -1,0 +1,14 @@
+<center>
+  <h2>Welcome to your profile <%=@patient.first_name.capitalize%>!</h2>
+  <p><b>Your Healthcare Providers:</b><br><br>
+    <%@patient.doctors.each do |doctor|%>
+      First Name: <%=doctor.first_name%> <br>
+      Last Name: <%=doctor.last_name%> <br>
+      Main Office: <%=doctor.offices.first.name%> <br>
+      Specialty: <%=doctor.specialties.first.title%> <br>
+      ----------------------------------------- <br>
+    <% end %>
+    </p>
+
+</center>
+
